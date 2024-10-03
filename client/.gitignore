@@ -1,16 +1,6 @@
-# dependencies
 /node_modules
-
-# production
 /build
-
-# misc
 .env
-
-# Optional npm cache directory
 .npm
-
-# Optional eslint cache
 .eslintcache
-
 .DS_Store
