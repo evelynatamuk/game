@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import characters from "./data/characters.json";
 import Character from "./types/Character";
-import { ShuffleButton } from "./components";
+import { Nav } from "./components";
 
 export const App = () => {
   const [cards, setCards] = useState<Character[]>([]);
@@ -19,7 +19,7 @@ export const App = () => {
 
   return (
     <>
-      <ShuffleButton shuffleCards={shuffleCards} />
+      <Nav shuffleCards={shuffleCards} />
       {cards.map((card) => (
         <>
           <br />
