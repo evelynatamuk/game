@@ -9,8 +9,12 @@ export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
   const [isShuffling, setShuffling] = useState<boolean>(false);
 
   useEffect(() => {
+    const SHUFFLING_MILISECONDS = 1000;
+
     const simulateLoading = () => {
-      return new Promise((resolve) => setTimeout(resolve, 2000));
+      return new Promise((resolve) =>
+        setTimeout(resolve, SHUFFLING_MILISECONDS)
+      );
     };
 
     if (isShuffling) {
@@ -22,9 +26,9 @@ export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
   }, [isShuffling]);
 
   return (
-    <div className="d-grid gap-2 m-1">
+    <div className="d-grid gap-2 m-1 col-2">
       <Button
-        variant="outline-info"
+        variant="outline-danger"
         size="lg"
         onClick={() => setShuffling(true)}
         disabled={isShuffling}
