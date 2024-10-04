@@ -1,5 +1,5 @@
 import { FC, Dispatch } from "react";
-import { Navbar, Container } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import { ShuffleButton } from "../ShuffleButton";
 
 interface NavbarProps {
