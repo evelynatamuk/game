@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import characters from "./data/characters.json";
-import Character from "./types/Character";
 import Card from "./types/Card";
 import { Nav } from "./components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import routes from "./routes/routes";
 
 export const App = () => {
-  const [cards, setCards] = useState<Character[]>([]);
+  const [cards, setCards] = useState<Card[]>([]);
 
   useEffect(() => {
     shuffleCards();
@@ -23,12 +24,13 @@ export const App = () => {
   return (
     <>
       <Nav shuffleCards={shuffleCards} />
-      {cards.map((card) => (
-        <>
-          <br />
-          {card.name}
-        </>
-      ))}
+      <BrowserRouter>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
