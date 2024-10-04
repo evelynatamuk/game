@@ -24,7 +24,7 @@ export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
   return (
     <div className="d-grid gap-2 m-1">
       <Button
-        variant="info"
+        variant="outline-info"
         size="lg"
         onClick={() => setShuffling(true)}
         disabled={isShuffling}
