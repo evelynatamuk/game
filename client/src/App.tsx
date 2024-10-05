@@ -23,8 +23,8 @@ export const App = () => {
 
   return (
     <>
-      <Nav shuffleCards={shuffleCards} />
       <BrowserRouter>
+      <Nav shuffleCards={shuffleCards} />
         <Routes>
           {routes.map((route, index) => (
             <Route key={index} path={route.path} element={route.element} />
