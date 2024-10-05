@@ -10,12 +10,12 @@ const routes: Route[] = [
   {
     path: "/",
     name: "Home",
-    element: null,
+    element: <></>,
   },
   {
     path: "/game",
     name: "Game",
-    element: null,
+    element: <></>,
   },
 ];
 
