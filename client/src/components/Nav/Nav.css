@@ -1,0 +1,11 @@
+.nav-link-shine {
+  transition: transform 0.1s ease;
+}
+
+.nav-link-shine:hover {
+  transform: scale(1.05);
+}
+
+.nav-link-shine:active {
+  transform: scale(0.95);
+}
