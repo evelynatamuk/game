@@ -1,34 +1,34 @@
 [
   {
     "name": "bingo",
-    "img": "../assets/bingo.png"
+    "img": "/bingo.png"
   },
   {
     "name": "birthday",
-    "img": "../assets/birthday.png"
+    "img": "/birthday.png"
   },
   {
     "name": "credit",
-    "img": "../assets/credit.png"
+    "img": "/credit.png"
   },
   {
     "name": "game",
-    "img": "../assets/game.png"
+    "img": "/game.png"
   },
   {
     "name": "love",
-    "img": "../assets/love.png"
+    "img": "/love.png"
   },
   {
     "name": "red",
-    "img": "../assets/red.png"
+    "img": "/red.png"
   },
   {
     "name": "sim",
-    "img": "../assets/sim.png"
+    "img": "/sim.png"
   },
   {
     "name": "tarot",
-    "img": "../assets/tarot.png"
+    "img": "/tarot.png"
   }
 ]
