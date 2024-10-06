@@ -35,7 +35,7 @@ export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
       >
         {isShuffling ? (
           <>
-            shuffling cards...
+            Shuffling...
             <Spinner
               as="span"
               animation="border"
@@ -45,7 +45,7 @@ export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
             />
           </>
         ) : (
-          "Click to Shuffle..."
+          "Shuffle Cards"
         )}
       </Button>
     </div>
