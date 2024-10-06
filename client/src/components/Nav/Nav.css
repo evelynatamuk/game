@@ -1,5 +1,5 @@
 .nav-link-shine {
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease-in-out;
 }
 
 .nav-link-shine:hover {
@@ -11,5 +11,5 @@
 }
 
 .navbar {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.457);
 }
