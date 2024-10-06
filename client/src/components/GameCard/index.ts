@@ -1,1 +1,1 @@
-export * from "./Gamecard";
+export * from "./GameCard";

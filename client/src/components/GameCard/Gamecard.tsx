@@ -1,10 +1,10 @@
 import { FC } from "react";
-import Card from "../../types/Card";
+import { Card } from "../../types";
 
 interface GameCardProps {
-  card: Card
+  card: Card;
 }
 
-export const GameCard: FC<GameCardProps> = ({}) => {
-  return <></>;
+export const GameCard: FC<GameCardProps> = ({ card }) => {
+  return <>{(card.cardId + 1) % 4 === 0 && <br />}</>;
 };
