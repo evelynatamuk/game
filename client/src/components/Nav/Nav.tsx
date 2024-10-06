@@ -1,14 +1,19 @@
-import { FC, Dispatch } from "react";
+import { FC, useEffect } from "react";
 import { Navbar } from "react-bootstrap";
 import { ShuffleButton } from "../ShuffleButton";
 import { NavLink } from "react-router-dom";
+import { useCards } from "../../contexts/Cards";
 import "./Nav.css";
 
-interface NavProps {
-  shuffleCards: Dispatch<void>;
-}
+interface NavProps {}
 
-export const Nav: FC<NavProps> = ({ shuffleCards }) => {
+export const Nav: FC<NavProps> = ({}) => {
+  const { shuffleCards } = useCards();
+
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="/">
