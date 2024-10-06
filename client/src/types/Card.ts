@@ -1,7 +1,7 @@
-import Character from "./Character";
+import { Character } from "./Character";
 
-interface Card extends Character {
-  id: number;
+export interface Card extends Character {
+  cardId: number;
+  isOpen: boolean;
+  isMatched: boolean;
 }
-
-export default Card;
