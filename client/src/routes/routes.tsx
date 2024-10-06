@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Game } from "../components";
 
 interface Route {
   path: string;
@@ -15,7 +16,7 @@ const routes: Route[] = [
   {
     path: "/game",
     name: "Game",
-    element: <></>,
+    element: <Game />,
   },
 ];
 
