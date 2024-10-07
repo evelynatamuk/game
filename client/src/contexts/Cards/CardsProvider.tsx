@@ -40,10 +40,12 @@ export const CardsProvider: FC<CardsProviderProps> = ({ children }) => {
   };
 
   const closeUnmatched = () => {
-    const newCards: Card[] = cards.map((card) =>
-      !card.isMatched && card.isOpen ? { ...card, isOpen: false } : card
-    );
-    setCards(newCards);
+    if (cards.filter((card) => card.isOpen && !card.isMatched).length > 1) {
+      const newCards: Card[] = cards.map((card) =>
+        !card.isMatched && card.isOpen ? { ...card, isOpen: false } : card
+      );
+      setCards(newCards);
+    }
   };
 
   return (
