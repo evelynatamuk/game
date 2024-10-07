@@ -17,15 +17,14 @@ export const Nav: FC<NavProps> = ({}) => {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="/">
-        <img
-          src="/temp-logo.svg"
-          width="50"
-          height="50"
-          className="mx-2"
-        />
+        <img src="/temp-logo.svg" width="50" height="50" className="mx-2" />
         MemoMaya
       </Navbar.Brand>
-      <NavLink to="/game" className="nav-link mx-2 nav-link-shine">
+      <NavLink
+        to="/game"
+        className="nav-link mx-2 nav-link-shine"
+        onClick={() => shuffleCards()}
+      >
         <Navbar.Text
           style={{ color: "#d54957", fontWeight: "bold", fontSize: "1.2rem" }}
         >
@@ -34,7 +33,7 @@ export const Nav: FC<NavProps> = ({}) => {
       </NavLink>
       <Navbar.Collapse className="justify-content-end">
         <ShuffleButton shuffleCards={shuffleCards} />
-        <Navbar.Text className="mx-4">© Evelyn & Maya</Navbar.Text>
+        <Navbar.Text className="mx-4 text-glow">© Evelyn & Maya</Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
   );

@@ -1,18 +1,32 @@
+.game-card {
+  cursor: pointer;
+  transition: transform 0.6s ease-in-out;
+}
+
+.game-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ancient-card-img,
+.ancient-card-body {
+  transition: opacity 0.3s ease-in-out;
+}
+
 .ancient-card {
   background-color: #f0e6d2 !important;
   border: 2px solid #d4a373 !important;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
-  transition: transform 0.1s ease-in-out;
-}
-
-.ancient-card:hover {
-  transform: scale(1.05);
 }
 
 .ancient-card-title {
   font-size: 1rem !important;
-  color: #634221!important;
+  color: #634221 !important;
   text-shadow: 1px 1px 2px #d4a373;
 }
 
