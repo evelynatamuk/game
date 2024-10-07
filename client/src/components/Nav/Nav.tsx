@@ -18,7 +18,7 @@ export const Nav: FC<NavProps> = ({}) => {
     <Navbar bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="/">
         <img
-          src="../../../public/temp-logo.svg"
+          src="/temp-logo.svg"
           width="50"
           height="50"
           className="mx-2"
