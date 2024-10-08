@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Card } from "../../types";
 import { Card as ReactCard } from "react-bootstrap";
 import { useCards } from "../../contexts/Cards";
@@ -9,11 +9,27 @@ interface GameCardProps {
 }
 
 export const GameCard: FC<GameCardProps> = ({ card }) => {
-  const { flipCard } = useCards();
+  const { cards, flipCard, matchCardsAndCloseUnmatched } = useCards();
 
   const handleFlip = () => {
     flipCard(card.cardId);
   };
+
+  useEffect(() => {
+    const FLIPPING_MILLISECONDS = 600;
+
+    const waitForFlip = () => {
+      return new Promise((resolve) =>
+        setTimeout(resolve, FLIPPING_MILLISECONDS)
+      );
+    };
+
+    if (card.isOpen && !card.isMatched) {
+      waitForFlip().then(() => {
+        matchCardsAndCloseUnmatched(card.id);
+      });
+    }
+  }, [cards]);
 
   return (
     <div
