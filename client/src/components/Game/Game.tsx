@@ -6,9 +6,8 @@ import { Container, Row, Col } from "react-bootstrap";
 interface GameProps {}
 
 export const Game: FC<GameProps> = () => {
-  const { cards } = useCards();
-
-  const [opacity, setOpacity] = useState(0);
+  const { cards, shuffleCards } = useCards();
+  const [opacity, setOpacity] = useState<number>(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,6 +16,12 @@ export const Game: FC<GameProps> = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (cards.every((card) => card.isMatched)) {
+      shuffleCards();
+    }
+  }, [cards]);
 
   return (
     <Container
