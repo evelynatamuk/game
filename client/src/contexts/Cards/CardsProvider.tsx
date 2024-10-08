@@ -30,27 +30,33 @@ export const CardsProvider: FC<CardsProviderProps> = ({ children }) => {
     return cards.every((card) => card.id !== id || card.isOpen);
   };
 
-  const matchCards = (id: number) => {
-    if (isPairMatched(id)) {
-      const newCards: Card[] = cards.map((card) =>
-        card.id === id ? { ...card, isMatched: true } : card
-      );
-      setCards(newCards);
-    }
+  const isMoreThanOneFlipped = (): boolean => {
+    return cards.filter((card) => card.isOpen && !card.isMatched).length > 1;
   };
 
-  const closeUnmatched = () => {
-    if (cards.filter((card) => card.isOpen && !card.isMatched).length > 1) {
-      const newCards: Card[] = cards.map((card) =>
+  const matchCardsAndCloseUnmatched = (id: number) => {
+    let newCards: Card[] = cards;
+
+    if (isPairMatched(id)) {
+      newCards = newCards.map((card) =>
+        card.id === id ? { ...card, isMatched: true } : card
+      );
+    }
+
+    if (isMoreThanOneFlipped()) {
+      newCards = newCards.map((card) =>
         !card.isMatched && card.isOpen ? { ...card, isOpen: false } : card
       );
+    }
+
+    if (newCards != cards) {
       setCards(newCards);
     }
   };
 
   return (
     <CardsContext.Provider
-      value={{ cards, shuffleCards, flipCard, matchCards, closeUnmatched }}
+      value={{ cards, shuffleCards, flipCard, matchCardsAndCloseUnmatched }}
     >
       {children}
     </CardsContext.Provider>

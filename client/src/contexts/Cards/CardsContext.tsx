@@ -5,8 +5,7 @@ interface CardsContextInterface {
   cards: Card[];
   shuffleCards: Dispatch<void>;
   flipCard: Dispatch<number>;
-  matchCards: Dispatch<number>;
-  closeUnmatched: Dispatch<void>;
+  matchCardsAndCloseUnmatched: Dispatch<number>;
 }
 
 export const CardsContext = createContext<CardsContextInterface | null>(null);
