@@ -1,23 +1,16 @@
-import { ReactNode } from "react";
 import { Game } from "../components";
+import { RoutePath } from "./route.enum";
+import { IRoute } from "./route.interface";
 
-interface Route {
-  path: string;
-  name: string;
-  element: ReactNode;
-}
-
-const routes: Route[] = [
+export const routes: IRoute[] = [
   {
-    path: "/",
+    path: RoutePath.HOME,
     name: "Home",
     element: <></>,
   },
   {
-    path: "/game",
+    path: RoutePath.GAME,
     name: "Game",
     element: <Game />,
   },
 ];
-
-export default routes;

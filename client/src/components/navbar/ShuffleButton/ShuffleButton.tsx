@@ -1,29 +1,32 @@
-import { FC, Dispatch, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 
-interface ShuffleButtonProps {
-  shuffleCards: Dispatch<void>;
-}
+import { useCards } from "../../../contexts";
 
-export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
+export const ShuffleButton: FC = () => {
+  const { shuffleCards } = useCards();
+
   const [isShuffling, setShuffling] = useState<boolean>(false);
 
   useEffect(() => {
-    const SHUFFLING_MILISECONDS = 1000;
-
-    const simulateLoading = () => {
-      return new Promise((resolve) =>
-        setTimeout(resolve, SHUFFLING_MILISECONDS)
-      );
-    };
-
     if (isShuffling) {
+      const SHUFFLING_MILISECONDS = 1000;
+
+      const simulateLoading = () => {
+        return new Promise((resolve) =>
+          setTimeout(resolve, SHUFFLING_MILISECONDS)
+        );
+      };
+
       simulateLoading().then(() => {
         shuffleCards();
         setShuffling(false);
       });
     }
   }, [isShuffling]);
+
+  const SHUFFLING_TEXT = "Shuffling...";
+  const SHUFFLE_CARDS_BUTTON_TEXT = "Shuffle Cards";
 
   return (
     <div className="d-grid gap-2 m-1 col-2">
@@ -35,7 +38,7 @@ export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
       >
         {isShuffling ? (
           <>
-            Shuffling...
+            {SHUFFLING_TEXT}
             <Spinner
               as="span"
               animation="border"
@@ -45,7 +48,7 @@ export const ShuffleButton: FC<ShuffleButtonProps> = ({ shuffleCards }) => {
             />
           </>
         ) : (
-          "Shuffle Cards"
+          `${SHUFFLE_CARDS_BUTTON_TEXT}`
         )}
       </Button>
     </div>

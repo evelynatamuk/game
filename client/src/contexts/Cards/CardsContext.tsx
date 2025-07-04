@@ -1,21 +1,16 @@
-import { createContext, Dispatch, useContext } from "react";
-import { Card } from "../../types/Card";
+import { createContext, useContext } from "react";
 
-interface CardsContextInterface {
-  cards: Card[];
-  shuffleCards: Dispatch<void>;
-  flipCard: Dispatch<number>;
-  matchCardsAndCloseUnmatched: Dispatch<number>;
-}
+import { ContextUsedOutsideProviderException } from "../common";
+import { CardsProvider } from "./CardsProvider";
+import { CardsContextInterface, CardsContextType } from "./cards-context.types";
 
-export const CardsContext = createContext<CardsContextInterface | null>(null);
+export const CardsContext = createContext<CardsContextType>(null);
 
-export const useCards = () => {
+export const useCards = (): CardsContextInterface => {
   const context = useContext(CardsContext);
 
-  if (!context) {
-    throw new Error("useCards must be used within a CardsProvider");
-  }
+  if (!context)
+    throw new ContextUsedOutsideProviderException(useCards, CardsProvider);
 
   return context;
 };

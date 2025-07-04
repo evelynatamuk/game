@@ -1,26 +1,26 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+
+import { useCards } from "../../../contexts";
 import { GameCard } from "../GameCard";
-import { useCards } from "../../contexts/Cards";
-import { Container, Row, Col } from "react-bootstrap";
 
-interface GameProps {}
-
-export const Game: FC<GameProps> = () => {
-  const { cards, shuffleCards } = useCards();
+export const Game: FC = () => {
+  const { cards, shuffleCards, isVictory } = useCards();
   const [opacity, setOpacity] = useState<number>(0);
 
   useEffect(() => {
+    const OPACITY = 1;
+    const DELAY_MILIS = 1000;
+
     const timer = setTimeout(() => {
-      setOpacity(1);
-    }, 300);
+      setOpacity(OPACITY);
+    }, DELAY_MILIS);
 
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    if (cards.every((card) => card.isMatched)) {
-      shuffleCards();
-    }
+    if (isVictory()) shuffleCards();
   }, [cards]);
 
   return (

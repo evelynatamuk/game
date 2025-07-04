@@ -1,46 +1,18 @@
-import { Character } from "../types";
+import { Character } from "../entities";
 
-const characters: Character[] = [
-  {
-    id: 0,
-    name: "bingo",
-    img: "/bingo.png",
-  },
-  {
-    id: 1,
-    name: "birthday",
-    img: "/birthday.png",
-  },
-  {
-    id: 2,
-    name: "credit",
-    img: "/credit.png",
-  },
-  {
-    id: 3,
-    name: "game",
-    img: "/game.png",
-  },
-  {
-    id: 4,
-    name: "love",
-    img: "/love.png",
-  },
-  {
-    id: 5,
-    name: "red",
-    img: "/red.png",
-  },
-  {
-    id: 6,
-    name: "sim",
-    img: "/sim.png",
-  },
-  {
-    id: 7,
-    name: "tarot",
-    img: "/tarot.png",
-  },
+const CHARACTER_IMG_FORMAT = "png";
+
+const names: string[] = [
+  "bingo",
+  "bithday",
+  "credit",
+  "game",
+  "love",
+  "red",
+  "sim",
+  "tarot",
 ];
 
-export default characters;
+export const characters: Character[] = names.map((name, index) => {
+  return { id: index + 1, name, img: `/${name}.${CHARACTER_IMG_FORMAT}` };
+});

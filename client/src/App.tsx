@@ -1,19 +1,17 @@
-import { Nav } from "./components";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import routes from "./routes/routes";
-import { CardsProvider } from "./contexts/Cards";
+import { FC } from "react";
 
-export const App = () => {
+import { CardsProvider } from "./contexts/Cards";
+import { RoutesBrowser } from "./components/routing/RoutesBrowser/RoutesBrowser";
+import { routes } from "./routes";
+
+import "./App.css";
+
+export const App: FC = () => {
   return (
-    <CardsProvider>
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element} />
-          ))}
-        </Routes>
-      </BrowserRouter>
-    </CardsProvider>
+    <div className="app">
+      <CardsProvider>
+        <RoutesBrowser routes={routes} />
+      </CardsProvider>
+    </div>
   );
 };

@@ -1,4 +1,3 @@
-export * from "./ShuffleButton";
-export * from "./Nav";
-export * from "./GameCard";
-export * from "./Game";
+export * from "./game-components";
+export * from "./navbar";
+export * from "./routing";
